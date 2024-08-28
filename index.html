@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump Height Calculator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            max-height: 100px;
+            max-width: 200px;
+        }
+
+        video {
+            margin-top: 20px;
+            border: 2px solid #ccc;
+            width: 320px;
+            height: 560px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input {
+            margin-top: 5px;
+            padding: 5px;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .instructions {
+            text-align: left;
+            max-width: 800px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .instructions h2 {
+            margin-top: 0;
+        }
+
+        .instructions ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://ufpr.br/wp-content/uploads/2015/11/ufpr_1000.jpg" alt="UFPR Logo">
+        <img src="http://www.inteligenciaesportiva.ufpr.br/sistema/imagens/estrutura/logo_ie_10anos.png" alt="Inteligência Esportiva Logo">
+    </header>
+
+    <h1>Jump Height Calculator</h1>
+
+    <div class="instructions">
+        <h2>Instruções para Gravação do Video</h2>
+        <ul>
+            <li>Grave o vídeo em formato retrato.</li>
+            <li>Posicione o atleta entre 3 e 4 metros da câmera.</li>
+            <li>Use a câmera lenta para filmar o salto (120hz ou 240hz).</li>
+        </ul>
+    </div>
+
+    <form action="/calculate" method="post" enctype="multipart/form-data">
+        <label for="video">Upload your video:</label>
+        <input type="file" id="video" name="video" required>
+
+        <label for="throchanter">Enter the throchanter height (in meters):</label>
+        <input type="number" step="0.01" id="throchanter" name="throchanter" required>
+        
+        <button type="submit">Calculate</button>
+    </form>
+
+    <h2 id="result">{{ result }}</h2>
+
+    {% if video_url %}
+        <h3>Your Processed Video:</h3>
+        <p>Video URL: <a href="{{ video_url }}" target="_blank">{{ video_url }}</a></p> <!-- Linha adicionada para debug -->
+        <video controls>
+            <source src="{{ video_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    {% endif %}
+
+    <footer>
+        <p>Para mais informações, entre em contato: <a href="mailto:vitorbertolinascimento@yahoo.com.br">vitorbertolinascimento@yahoo.com.br</a></p>
+    </footer>
+</body>
+</html>
