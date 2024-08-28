@@ -1,2 +1,2 @@
 # jump_height
-Jumpu Height with Mediapipe BlazePose
+Jump Height with Mediapipe BlazePose
