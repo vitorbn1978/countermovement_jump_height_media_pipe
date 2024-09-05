@@ -16,3 +16,4 @@ for center of mass
 
 
 XX Congresso Brasileiro de Biomecância: https://bsb.org.br/wp-content/uploads/2024/02/365-Manuscript-file-Mandatory-3950-4407-10-20230525.pdf
+with use the code considering cite: 10.13140/RG.2.2.14372.28801
